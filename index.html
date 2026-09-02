@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>Coupon Redeemer</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Coupon Redeemer</h1>
+      <p>쿠폰 URL과 UID를 입력한 뒤 순차적으로 교환 요청을 보냅니다.</p>
+    </header>
+
+    <div class="warning">
+      ⚠️ <strong>주의:</strong> 시작 버튼을 누르면 실제 외부 게임 서비스로 쿠폰 교환 요청이 전송됩니다.
+      테스트가 아닌 실제 요청이므로 입력값을 확인하세요.
+    </div>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>쿠폰 URL</h2><span id="couponCount">0개</span>
+      </div>
+      <textarea id="coupons" spellcheck="false" placeholder="완전한 쿠폰 URL을 한 줄에 하나씩 붙여넣으세요."></textarea>
+      <label class="file">📄 TXT 파일 불러오기
+        <input id="couponFile" type="file" accept=".txt,text/plain">
+      </label>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>UID</h2><span id="uidCount">0개</span>
+      </div>
+      <textarea id="uids" inputmode="numeric" spellcheck="false" placeholder="게임 UID를 한 줄에 하나씩 입력하세요."></textarea>
+      <label class="file">📄 TXT 파일 불러오기
+        <input id="uidFile" type="file" accept=".txt,text/plain">
+      </label>
+    </section>
+
+    <section class="summary">
+      <div><b id="total">0</b><small>총 요청</small></div>
+      <div><b id="done">0</b><small>처리 완료</small></div>
+      <div><b id="ok">0</b><small>성공</small></div>
+      <div><b id="fail">0</b><small>실패</small></div>
+    </section>
+
+    <div class="progress"><div id="bar"></div></div>
+    <p id="status" class="status">대기 중</p>
+
+    <div class="actions">
+      <button id="start">▶ 시작</button>
+      <button id="cancel" class="secondary" disabled>■ 취소</button>
+    </div>
+
+    <section class="panel results">
+      <div class="panel-head"><h2>결과</h2>
+        <div>
+          <button id="json" class="mini" disabled>JSON</button>
+          <button id="csv" class="mini" disabled>CSV</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>쿠폰</th><th>UID</th><th>결과</th><th>메시지</th></tr></thead>
+          <tbody id="results"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+<script src="./app.js"></script>
+</body>
+</html>
