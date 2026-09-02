@@ -1,0 +1,7 @@
+{
+  "name": "mobile-coupon-redeemer",
+  "private": true,
+  "scripts": {
+    "test": "node tests/worker.test.js"
+  }
+}
