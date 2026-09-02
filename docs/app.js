@@ -5,7 +5,7 @@ const $ = id => document.getElementById(id);
 const coupons = $("coupons"), uids = $("uids"), results = $("results");
 let rows = [], running = false, controller = null;
 
-function lines(v){return [...new Set(v.split(/\\r?\\n/).map(x=>x.trim()).filter(Boolean))]}
+function lines(v){return [...new Set(v.split(/\r?\n/).map(x=>x.trim()).filter(Boolean))]}
 function updateCounts(){
   $("couponCount").textContent = `${lines(coupons.value).length}개`;
   $("uidCount").textContent = `${lines(uids.value).length}개`;
