@@ -1,5 +1,5 @@
 // GitHub Pages frontend. Set this to your deployed Cloudflare Worker URL.
-const API_BASE = "https://YOUR-WORKER.workers.dev";
+const API_BASE = "https://pubgm-redeem.pubgmk14-kr.workers.dev";
 
 const $ = id => document.getElementById(id);
 const coupons = $("coupons"), uids = $("uids"), results = $("results");
